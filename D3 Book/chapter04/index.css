@@ -1,0 +1,180 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+
+/* 章魚揮手 */
+.github-corner:hover 
+.octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+@keyframes octocat-wave {
+  0%,100% {
+    transform:rotate(0)
+  }
+  20%,60% {
+    transform:rotate(-25deg)
+  }
+  40%,80% {
+    transform:rotate(10deg)
+  }
+}
+@media (max-width:500px) {
+  .github-corner:hover 
+  .octo-arm {
+    animation:none
+  }
+
+  .github-corner 
+  .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+}
+
+/* 霓虹燈 */
+.GFG {
+  margin: -10px auto; 
+  font-family: 'Noto Serif JP', serif;
+  color: white; 
+  font-size: 22pt;
+  -webkit-text-stroke-width: 1px; 
+  -webkit-text-stroke-color:  #AA0000;
+  animation: 12s pulsate infinite;
+}
+@keyframes pulsate {
+  35% { text-shadow: 0 0 3px #FF0000, 0 0 6px #AA0000; font-size: 24pt;}
+  50% { text-shadow: 0 0 6px #AA0000, 0 0 24px #FF0000; font-size: 24pt;}
+}
+
+h1 {
+  background-color: rgba(255, 255, 0, 0.1);
+  font-family: 'Noto Serif JP', serif;
+  font-size: 48pt;
+  border: solid 1px black;
+  width: 90%;
+  margin: 5px auto;
+  padding: 10px;
+}
+
+h3 {
+  background-color: rgba(255, 255, 0, 0.1);
+  color: white; 
+  text-shadow: 0 0 6px #FF0000, 0 0 6px #000000;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18pt;
+  border: solid 1px black;
+  width: 90%;
+  margin: 5px auto;
+  padding: 10px;
+}
+
+div, p, ul, ol {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12pt;
+  border: solid 1px black;
+  width: 90%;
+  margin: 5px auto;
+  padding: 10px;
+}
+
+div:hover, p:hover, ul:hover, ol:hover, h1:hover, h3:hover, pre:hover {
+  background-color: rgba(255, 255, 128, 0.1);
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 0px 0px 5px 5px rgba(128, 255, 255, 0.5);
+}
+
+li {
+  padding: 5px 0px 5px 0px;
+}
+
+.point {
+  font-size: 18pt;
+}
+
+.f {
+  display: flex;            
+}
+
+textarea {
+  font-family:'Courier New'; 
+  background: rgba(128, 255, 255, 0.1);
+  padding: 5px;
+}
+
+pre {
+  font-family:'Courier New';
+  background: rgba(128, 255, 255, 0.1);
+  border: solid 1px black;
+  width: 90%;
+  padding: 10px;
+}
+
+td, th {
+	padding: 2px 16px;
+	font-size: smaller;
+}
+
+td:hover, th:hover, li:hover {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+
+table, td, th {
+    border: 1px solid #333;
+    font-size: normal;
+}
+
+thead, tfoot {
+    background-color: #999;
+    color: #fff;
+}
+
+svg {
+  border: 1px solid rgba(255, 128, 128, 0.8);
+}
+
+img {
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+/* 波浪 */
+/* https://www.zhangxinxu.com/wordpress/2013/02/study-span-a-element-keyboard-focusable-clickable/ */
+a {
+  color:#f30;
+  /*
+  text-decoration:underline;
+  padding:2px 0;
+  */
+  text-decoration: none; 
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23ff3300' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%; 
+  background-size:20px auto; 
+  animation: waveMove 1s infinite linear;
+}
+
+a:hover {
+  color:#f30;
+  /*
+  text-decoration: none; 
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23ff3300' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%; 
+  background-size:20px auto; 
+  animation:waveMove 1s infinite linear;
+  */
+  text-decoration: none;
+  background: none;
+  animation: none;
+  text-decoration: underline;
+  padding:2px 0;
+}
+@keyframes waveMove {
+  from { background-position:0 100%; }
+  to { background-position:20px 100%; }
+}
+
+
+/* ***************************************************************************************************************** */
+/* ***************************************************************************************************************** */
+/* ***************************************************************************************************************** */
+
+/* */
+

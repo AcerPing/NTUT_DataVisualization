@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chapter 01</title>
+	<meta charset="utf-8">
+  <link rel="stylesheet" href="index.css">
+
+  <!--
+  <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+  <script type="text/javascript" src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  -->
+  <script type="text/javascript" src="../d3.js/d3.js"></script>
+</head>
+<body>
+<!-- ---------------------- -->
+  <!-- https://alexlenail.me/NN-SVG/about.html -->
+  <a href="https://github.com/scotthmurray/d3-book/" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+      <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+  </a>
+<!-- ---------------------- -->
+
+<!-- ---------------------- -->
+<h1>資料可視化</h1>
+<h3>Chapter 01 <hr> Introduction</h3>
+
+<!-- ---------------------- -->
+<div>
+  <a href="https://alignedleft.com/tutorials/d3/">D3 Tutorials</a><br>
+  <a href="https://www.oreilly.com/library/view/interactive-data-visualization/9781491921296/">Interactive Data Visualization for the Web, 2nd Edition [Book]</a>, O’Reilly Media, Inc.<br>
+  <a href="https://github.com/scotthmurray/d3-book/releases">Source Code</a><br>
+  <hr>
+  <textarea rows="16" cols="100">
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Your beautiful D3 code will go here
+        </script>
+    </body>
+</html>
+
+  </textarea>
+</div>
+<!-- ---------------------- -->
+
+
+
+<div>
+  <img src="https://www.svgrepo.com/show/324401/volum-adjust.svg" width="128">
+</div>
+
+
+<h3>
+Why Data Visualization?
+</h3>
+
+<p>
+原始數據(Raw data)變得有用，當我們 使用方法 從中獲得洞察力。
+</p>
+
+<p>
+可視化(Visualization)是將<span style="color:red">資訊</span>(information)映射到<span style="color:red">視覺效果</span>(visuals)的過程。<br><br>
+
+<span style="color:red">制定規則</span>來解釋數據，並將其<span style="color:red">值</span>(values)表達為<span style="color:red">視覺屬性</span>(visual properties)。<br><br>
+
+下面直條圖根據的規則：<span style="color:red">較大</span>的值，映射為<span style="color:red">較高</span>的直條(bars)。
+
+</p>
+
+<div>
+<img src="./jpg/1-1.jpg" width="50%">
+</div>
+
+
+
+<h3>
+Why Interactive?
+</h3>
+
+<div>
+<img src="https://www.svgrepo.com/show/13731/interactive.svg" width="128">
+</div>
+
+
+<ul>
+“Visual Information-Seeking Mantra 真言”: 
+<li>overview first, </li>
+<li>zoom and filter, </li>
+<li>then details-on-demand.</li>
+</ul>
+
+
+<h3>
+What This Book Is
+</h3>
+
+
+
+<ul>
+<img src="https://www.svgrepo.com/show/65789/book.svg" width="128">
+<hr>
+This book is a practical introduction to merging three practices—
+<li>data visualization,</li>
+<li>interactive design, and </li>
+<li>web development</li>
+—using D3, a powerful tool for custom, web-based visualization.
+</ul>
+
+
+<h3>
+Who You Are
+</h3>
+
+<div><img src="https://www.svgrepo.com/show/192363/girl.svg" width="128"></div>
+
+<p>
+Beginner!
+</p>
+
+<h3>
+What This Book Is Not
+</h3>
+
+
+<div>
+  <img src="https://www.svgrepo.com/show/12750/do-not-dry.svg" width="128">
+  <img src="https://www.svgrepo.com/show/288118/door-hanger-do-not-disturb.svg" width="128">
+</div>
+
+<p>
+Not intended to teach web technology (HTML, CSS, JavaScript, SVG) in depth. 
+</p>
+
+<p>My goal is to teach you the fundamental concepts and methods of D3.</p>
+
+<h3>
+Using Sample Code
+</h3>
+
+<p>
+  <a href="https://github.com/scotthmurray/d3-book/releases">GitHub releases page.</a>
+</p>
+
+<p>
+You are welcome to copy, adapt, modify, and reuse the example code in these tutorials
+for any noncommercial purpose.
+</p>
+
+
+
+<div>
+  <img src="https://www.svgrepo.com/show/217753/github.svg" width="128">
+  <img src="https://www.svgrepo.com/show/312259/github.svg" width="128">
+</div>
+
+
+
+
+<!-- ---------------------- -->
+<!-- ---------------------- -->
+
+<!--
+<iframe frameBorder="0" width="787" height="600" src="https://purecss3.net/index/Gununu_Index_CSS3.html" style="transform: scale(0.5);" scrolling="no"></iframe>
+-->
+
+<div onmouseover="playAudio()" onmouseout="pauseAudio()">
+<iframe frameBorder="0" width="600" height="300" src="../chapter00/kimetsu.html" style=" transform: scale(2);" scrolling="no"></iframe>
+</div>
+
+<!-- 
+https://www.w3schools.com/jsref/met_audio_play.asp
+https://www.w3schools.com/jsref/event_onmouseover.asp
+https://stackoverflow.com/questions/11004437/why-isnt-my-audio-rewinding
+-->
+
+<audio id="myAudio">
+  <source src="../chapter00/kimetsu.mp3" type="audio/mp3">
+</audio>
+
+<script type="text/javascript">
+function playAudio() { 
+  document.getElementById("myAudio").play(); 
+} 
+
+function pauseAudio() { 
+  //document.getElementById("myAudio").pause(); 
+} 
+</script>
+
+<div class="GFG">
+終了。 しゅう りょう。 Let's call it a day.
+<hr> 
+終わりましょう。 Let's get done with this. 
+<hr>
+終わりにしましょう。 Let's finish this.
+</div>
+
+</body>
+</html>

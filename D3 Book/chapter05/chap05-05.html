@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="utf-8">
+    <title>D3 Page Template</title>
+    <script src="./d3.v4.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <script type="text/javascript">
+      
+        var dataset = [ 5, 10, 15, 20, 25 ];
+
+
+        d3.select("body").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) { return d; });
+  
+
+    </script>
+</body>
+</html>

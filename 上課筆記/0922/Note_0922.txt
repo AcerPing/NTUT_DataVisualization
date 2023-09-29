@@ -1,0 +1,2 @@
+The document object is the root node of the HTML document. --> root node 根節點
+The document object is a property of the window object. --> window object 父節點

@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chapter 05</title>
+	<meta charset="utf-8">
+  <link rel="stylesheet" href="index.css">
+
+  <!--
+  <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+  <script type="text/javascript" src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  -->
+  <script type="text/javascript" src="../d3.js/d3.js"></script>
+</head>
+<body>
+<!-- ---------------------- -->
+  <!-- https://alexlenail.me/NN-SVG/about.html -->
+  <a href="https://github.com/scotthmurray/d3-book/" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+      <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+  </a>
+<!-- ---------------------- -->
+
+<!-- ---------------------- -->
+<h1>資料可視化</h1>
+<h3>Chapter 05 <hr> Data</h3>
+
+<!-- ---------------------- -->
+<div>
+  <a href="https://alignedleft.com/tutorials/d3/">D3 Tutorials</a><br>
+  <a href="https://www.oreilly.com/library/view/interactive-data-visualization/9781491921296/">Interactive Data Visualization for the Web, 2nd Edition [Book]</a>, O’Reilly Media, Inc.<br>
+  <a href="https://github.com/scotthmurray/d3-book/releases">Source Code</a><br>
+  <hr>
+  <textarea rows="16" cols="100">
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Your beautiful D3 code will go here
+        </script>
+    </body>
+</html>
+
+  </textarea>
+</div>
+<!-- ---------------------- -->
+
+
+
+
+
+<p>
+
+In D3, the <span style="color:red">data (資料)</span> must be bound (綁定) to <span style="color:red">elements within the page (頁面內的元素)</span>. </p>
+
+<h3>Generating Page Elements</h3>
+
+<h3>01_empty_page_template.html</h3>
+
+<!-- ---------------------- -->
+<div>
+  D3 Page Template
+  <div id="demo0501"></div>
+  <hr>
+  <button onclick="myFunction0501()">chapter_05/01_empty_page_template.html</button>
+  <hr>
+
+  教科書版 v4.5.0<br>
+  <textarea rows="16" cols="100">
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script type="text/javascript" src="../d3.js/d3.js"></script> <!-- v4.5.0 -->
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Your beautiful D3 code will go here
+        </script>
+    </body>
+</html>
+  </textarea>
+  <hr>
+
+  vv6.5.0<br>
+  <textarea rows="16" cols="100">
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Your beautiful D3 code will go here
+        </script>
+    </body>
+</html>
+  </textarea>
+  <hr>
+
+  最新版 v7.8.5<br>
+  <textarea rows="16" cols="100">
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script> <!-- v7.8.5 -->
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Your beautiful D3 code will go here
+        </script>
+    </body>
+</html>
+  </textarea>
+</div>
+
+
+
+
+<script type="text/javascript">
+  function myFunction0501() {
+
+  }
+</script>
+<!-- ---------------------- -->
+
+
+<p>
+  在網絡瀏覽器中打開該頁面。
+<br><br>
+ So the <span style="color:red">URL</span> in your browser’s location bar 應該看起來像這樣 localhost:</p>
+<div>
+  <textarea rows="3" cols="100">
+http://localhost:8888/d3-book/chapter_05/01_empty_page_template.html
+  </textarea>
+</div>
+
+<p>
+確認 URL 不是這樣的 file 開頭:
+</p>
+
+<div>
+  <textarea rows="3" cols="100">
+file:///…/d3-book/chapter_05/01_empty_page_template.html
+  </textarea>
+</div>
+
+
+<div>
+  <img src="./png/5-2.png" class="good-kid" width="80%">
+</div>
+
+
+<h3>02_new_element.html</h3>
+
+<p>Back in your <span style="color:red">text editor</span>, replace the comment between the script tags with:</p>
+
+<div>
+  <textarea rows="3" cols="100">
+d3.select("body").append("p").text("New paragraph!");
+  </textarea>
+</div>
+
+
+
+<!-- ---------------------- -->
+<div>
+  D3 Page Template
+  <div id="demo0502"></div>
+  <hr>
+  <button onclick="myFunction0502()">chapter_05/02_new_element.html</button>
+  <hr>
+  <textarea rows="6" cols="100">
+
+    d3.select("#demo3").append("p").text("New paragraph!");
+  </textarea>
+</div>
+
+<script type="text/javascript">
+  function myFunction0502() {
+    d3.select("#demo0502").append("p").text("New paragraph!");
+  }
+</script>
+<!-- ---------------------- -->
+
+
+
+<h3>Chaining Methods</h3>
+
+<p>By “chaining” methods together with <span style="color:red">periods</span> (英文的句號 .), you can perform several
+actions in <span style="color:red">a single line of code</span>.</p>
+
+<div>
+  <textarea rows="6" cols="100">
+d3.select("body").append("p").text("New paragraph!");
+  </textarea>
+</div>
+
+
+<p>You can put each method <span style="color:red">on its own line</span> for legibility (便於閱讀):</p>
+
+<div>
+  <textarea rows="6" cols="100">
+d3.select("body")
+  .append("p")
+  .text("New paragraph!");
+  </textarea>
+</div>
+
+
+<h3>One Link at a Time</h3>
+
+<div>
+  解釋上述程式碼中的每一個環節:
+
+  <table>
+    <tr>
+      <td width="196">d3</td>
+      <td>References the D3 object.<br><br></td>
+    </tr>
+    <tr>
+      <td>.select("body")</td>
+      <td>Give the <a class="a_link" href="https://github.com/d3/d3-selection/blob/master/README.md#select">select()</a> method a CSS selector as input, and it will return a reference to the first element in the DOM that matches. <br><br>
+        <hr>
+        A <span style="color:red">reference to body</span> is <span style="color:red">handed off 遞傳</span> to the next method in our chain.<br><br></td>
+    </tr>
+    <tr>
+      <td>.append("p")</td>
+      <td><a class="a_link" href="https://github.com/d3/d3-selection/blob/master/README.md#selection_append">append()</a> creates whatever <span style="color:red">new DOM element</span> you specify and appends it to the end of whatever selection it’s acting on. 
+  
+      <hr>
+      <a href="https://www.w3schools.com/jsref/prop_win_document.asp"> The Document Object </a><br><br>
+      
+When an <span style="color:red">HTML document </span>is loaded into a web browser, it becomes a <span style="color:red">document object</span>.<br>
+
+The <span style="color:red">document object </span>is the <span style="color:red">root node</span> of the HTML document.<br>
+
+The <span style="color:red">document object</span> is a property of the <span style="color:red">window object</span>.<br>
+
+The <span style="color:red">document object</span> is accessed with:<br>
+
+<span style="color:red">window.document</span> or just <span style="color:red">document</span>
+
+      <hr>
+      <!-- https://ithelp.ithome.com.tw/m/articles/10202689 -->
+      <a href="DOM 全名為 Document Object Model 中文翻譯為 文件物件模型">DOM 全名 Document Object Model 文件物件模型</a><br><br>
+      <img src="./png/quZtbSB.jpg" width="85%"><br><br>
+      We want to create a new <span style="color:red">p</span> within the <span style="color:red">body</span>. <br><br>
+      We specified <span style="color:red">"p"</span> as the input argument, but this method also sees the <span style="color:red">reference to body</span> that was passed down the chain from the <span style="color:red">select()</span> method. <br><br>
+      
+      So an empty <span style="color:red">p</span> paragraph is appended to the <span style="color:red">body</span>. 
+      
+      <hr>
+      Finally, <span style="color:red">append()</span> hands off a reference to the new element it just created.<br><br>
+  
+      </td>
+    </tr>
+    <tr>
+      <td>.text("New paragraph!")</td>
+      <td>
+  
+        <a class="a_link" href="https://github.com/d3/d3-selection/blob/master/README.md#selection_text">text()</a> takes a <span style="color:red">string</span> and inserts it between the opening and closing tags of the current selection. <br><br>
+  
+        Because the previous method passed down <span style="color:red">a reference to our new p</span>, this code just inserts the new text between < p > and < / p >.<br><br></td>
+    </tr>
+    <tr>
+      <td>;</td>
+      <td>The all-important <span style="color:red">semicolon</span> indicates the end of this line of code. <br><br> Chain over.<br><br></td>
+    </tr>
+  </table>
+  </div>
+
+<h3>selection.append(type)</h3>
+
+<div>
+  <a href="https://bioub.github.io/dom-visualizer/">DOM Visualizer</a>
+  <img src="./png/domVisualization.svg" width="95%">
+</div>
+
+<div>
+  <textarea rows="18" cols="80">
+<ul id="div_kitty1">
+  <li id="k1" ><img src="./92.png" width="128" class="good-kid"> k1 </li>
+  <li id="k2" ><img src="./92.png" width="128" class="good-kid"> k2 </li>
+  <li id="k3" ><img src="./92.png" width="128" class="good-kid"> k3 </li>
+</ul>
+
+<script type="text/javascript">
+    d3.select("#div_kitty1")
+      .append("li")
+      .html("Angry...! ")
+      .append("img")
+      .attr("src", "./93.png")
+      .attr("width",  128)
+      .attr("height",  128)
+      .attr("class", "bad-kid");
+</script>
+  </textarea>
+</div>
+
+<div>
+  現場操作 Console 示範:<br>
+  <textarea rows="4" cols="80">
+// 把 k1 的子樹，變成 Angry...!!!
+d3.select("#k1").html("Angry...!!! "); 
+  </textarea>
+
+  <textarea rows="4" cols="80">
+// 讓 k1 新增一個子節點 p, 讓 p 新增一個子文字節點，設定內文為 Hi
+d3.select("#k1").append('p').text('Hi');  
+  </textarea>
+
+  <textarea rows="4" cols="80">
+// 讓 k1, k2, k3 各新增一個子節點 p, 
+d3.selectAll("li").append("p");  
+  </textarea>
+
+  <!-- <textarea rows="3" cols="80">
+d3.selectAll("li").select(() => document.createElement("p")); // 這裡用 select
+  </textarea> -->
+
+  <textarea rows="3" cols="80">
+d3.selectAll("li").append(() => document.createElement("p")); // 這裡用 append
+  </textarea>
+
+
+</div>
+
+<ul id="div_kitty1">
+  <li id="k1"><img src="./92.png" width="128" class="good-kid"> k1 </li>
+  <li id="k2"><img src="./92.png" width="128" class="good-kid"> k2 </li>
+  <li id="k3"><img src="./92.png" width="128" class="good-kid"> k3 </li>
+
+  <input type="button" name="" value="d3.append('li')" onClick="append1()">
+</ul>
+
+
+<script type="text/javascript">
+  function append1(){
+    d3.select("#div_kitty1")
+      .append("li").html("Angry...! ")
+      .append("img")
+      .attr("src", "./93.png")
+      .attr("width",  128)
+      .attr("height",  128)
+      .attr("class", "bad-kid");
+  }
+</script>
+
+<div>
+    這段說明出自 <a href="https://github.com/d3/d3-selection">d3-selection</a> 必讀!<br>
+
+    <textarea rows="12" cols="80">
+// https://github.com/d3/d3-selection
+
+d3.select(selector)
+d3.selectAll(selector)
+selection.select(selector)
+selection.selectAll(selector)
+selection.filter(filter)
+selection.merge(other)
+selection.selectChild([selector])
+selection.selectChildren([selector])
+selection.selection() 
+d3.matcher(selector)
+d3.selector(selector)
+d3.selectorAll(selector)
+d3.window(node)
+d3.style(node, name)
+selection.attr(name[, value])
+selection.classed(names[, value])
+selection.style(name[, value[, priority]])
+selection.property(name[, value])
+selection.text([value])
+selection.html([value])
+selection.append(type)
+selection.insert(type[, before])
+selection.remove()
+selection.clone([deep])
+selection.sort(compare)
+selection.order()
+selection.raise()
+selection.lower()
+d3.create(name)
+d3.creator(name)
+
+// https://observablehq.com/@d3/selection-join  
+// https://bost.ocks.org/mike/join/
+
+selection.data([data[, key]]) 
+selection.join(enter[, update][, exit])
+selection.enter()
+selection.exit()
+selection.datum([value]) 
+selection.on(typenames[, listener[, options]]) 
+selection.dispatch(type[, parameters])
+d3.pointer(event[, target])
+d3.pointers(event[, target])
+selection.each(function)
+selection.call(function[, arguments…])
+selection.empty()
+selection.nodes() 
+selection.node() 
+selection[Symbol.iterator]()
+d3.local()
+local.set(node, value)
+local.get(node)
+local.remove(node)
+local.toString()
+d3.namespace(name) 
+d3.namespaces
+    </textarea>
+
+    <hr>
+
+    D3.js 重要觀念 <a href="https://bost.ocks.org/mike/join/">Thinking with Joins</a> 必讀!<br><br>
+
+    <!-- 程式任務: 動態手機加入、大螢幕顯示手機室內位置<br><br> -->
+    <hr>
+
+    selection.append(type) 程式碼如下<br>
+
+    <textarea rows="12" cols="80">
+// https://github.com/d3/d3-selection/blob/main/src/selection/append.js
+
+import creator from "../creator.js";
+
+export default function(name) {
+  var create = typeof name === "function" ? name : creator(name);
+  return this.select(function() {
+    return this.appendChild(create.apply(this, arguments));
+  });
+}
+    </textarea>
+    <hr>
+
+    selection.append(<span style="color:red">type</span>)
+
+
+    <hr>
+
+    <textarea rows="4" cols="80">
+d3.selectAll("div").append("p");
+    </textarea>
+
+    <h2><span style="color:red">type</span> 第一種情況</h2>
+    If the specified type is a <span style="color:red; font-size: 48pt;">string</span>, appends a new element of this type (tag name) 
+    <li><span style="color:red">as the last child</span> of each selected element, </li>
+    <li>or <span style="color:red">before the next following sibling</span> in the update selection if this is an enter selection. </li>
+    <hr>
+    <h2><span style="color:red">type</span> 第二種情況</h2>
+
+    If the specified type is a <span style="color:red; font-size: 48pt;">function</span>, <span style="color:red">it is evaluated for each selected element</span>, in order, 
+    
+    being passed <br>
+    <li>the current datum (<span style="color:red">d</span>), </li>
+    <li>the current index (<span style="color:red">i</span>), and </li>
+    <li>the current group (<span style="color:red">nodes</span>), </li>
+    
+    with <span style="color:red">this</span> as the current DOM element (<span style="color:red">也就是 nodes[i]</span>). <br>
+    The function typically <span style="color:red">creates a new element</span>, but it may instead return an <span style="color:red">existing element</span>. <br><br>
+
+    For example, to append a <span style="color:red">paragraph</span> to each <span style="color:red">DIV</span> element:<br><br>
+
+
+
+  <textarea rows="4" cols="80">
+d3.selectAll("div").append("p");
+  </textarea>
+
+  <br><br>This is equivalent to:<br><br>
+
+  <textarea rows="4" cols="80">
+d3.selectAll("div").append(() => document.createElement("p"));
+  </textarea>
+
+
+  <br><br>
+  Which is equivalent to:<br><br>
+
+  <textarea rows="4" cols="80">
+d3.selectAll("div").select(function() {
+  return this.appendChild(document.createElement("p"));
+});
+  </textarea>
+    <hr>
+    d3.selectAll("div").append(<span style="color:red">() => document.createElement("p")</span>);<br><br>
+
+    d3.selectAll("div").select(<span style="color:red">function() {<br>
+      &nbsp;  &nbsp;  return this.appendChild(document.createElement("p"));<br>
+    }</span>);<br>
+      
+
+    <hr>
+    This method (上述紅字) returns <span style="color:red">a new selection</span> containing the <span style="color:red">appended elements</span>. 
+</div>
+
+<h3>selection.insert(type[, before])</h3>
+
+<div>
+
+<textarea rows="6" cols="80">
+<ul id="div_kitty1">
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+</ul>
+</textarea>
+
+<pre>
+    d3.select("#div_kitty2")
+      <span style="color:red">.insert("li", ":first-child")
+      .html("Angry...! ")</span>
+      .append("img")
+      .attr("src", "./93.png")
+      .attr("width",  128)
+      .attr("height",  128)
+      .attr("class", "bad-kid");
+</pre>
+</div>
+
+<ul id="div_kitty2">
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+</ul>
+
+
+<script type="text/javascript">
+    d3.select("#div_kitty2")
+      .insert("li", ":first-child")
+      .html("Angry...! ")
+      //.insert("li", ":nth-child(2)").html("Angry...! ")
+      .append("img")
+      .attr("src", "./93.png")
+      .attr("width",  128)
+      .attr("height",  128);
+</script>
+
+
+<div>
+  <pre>
+    d3.select("#div_kitty3")
+      <span style="color:red">.insert("li", ":nth-child(2)")
+      .html("Angry...! ")</span>
+      .append("img")
+      .attr("src", "./93.png")
+      .attr("width",  128)
+      .attr("class", "bad-kid")
+      .attr("height",  128);
+  </pre>
+</div>
+
+<ul id="div_kitty3">
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+</ul>
+
+
+<script type="text/javascript">
+    d3.select("#div_kitty3")
+      //var.insert("li", ":first-child").html("Angry...! ")
+      .insert("li", ":nth-child(2)")
+      .html("Angry...! ")
+      .append("img")
+      .attr("src", "./93.png")
+      .attr("width",  128)
+      .attr("class", "bad-kid");
+</script>
+
+<!-- 
+<ul id="div_kitty4">
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+  <li><img src="./92.png" width="128" class="good-kid"> </li>
+</ul>
+
+<div>
+  <pre>
+    d3.select("#div_kitty4")
+      .insert("li", ":nth-child(2)<span style="color:red">::before</span>")
+      .html("Angry...! ")
+      .append("img")
+      .attr("src", "./93.png")
+      .attr("width",  128)
+      .attr("height",  128);
+  </pre>
+</div>
+
+<script type="text/javascript">
+    d3.select("#div_kitty4")
+      //var.insert("li", ":first-child").html("Angry...! ")
+      .insert("li", ":nth-child(2)::before")
+      .html("Angry...! ")
+      .append("img")
+      .attr("src", "./93.png")
+      .attr("width",  128)
+      .attr("height",  128)
+      .attr("class", "bad-kid");
+</script>
+
+-->
+
+<!-- <div>
+    If the specified type is a <span style="color:red; font-size: 48pt;">string</span>, inserts a new element of this type (tag name) before the first element matching the specified before selector for each selected element. 
+
+    <hr>
+
+  <textarea rows="4" cols="80">
+d3.selectAll("div").insert("p");
+  </textarea>
+
+  <textarea rows="4" cols="80">
+d3.selectAll("div").insert(() => document.createElement("p"));
+  </textarea>
+  
+  <textarea rows="4" cols="80">
+d3.selectAll("div").select(function() {
+  return this.insertBefore(document.createElement("p"), null);
+});
+  </textarea>
+</div> -->
+
+
+<h3>The Handoff 遞傳、交接</h3>
+
+<p>Many D3 methods return a <span style="color:red">selection</span> (actually, <span style="color:red">a reference to a selection</span>), <br><br>
+  
+  which enables this handy technique of <span style="color:red">method chaining</span>. 
+<br><br>
+ <a class="a_link" href="https://github.com/d3/d3/blob/master/API.md">API reference</a></p>
+
+
+<h3>Going Chainless</h3>
+
+<p>Our sample code could be rewritten <span style="color:red">without chain syntax</span>:</p>
+
+<div>
+  <textarea rows="8" cols="100">
+var body = d3.select("body");
+
+var p = body.append("p");
+
+p.text("New paragraph!");
+  </textarea>
+</div>
+
+
+
+<p>
+We know how to <span style="color:red">generate new page elements</span> with D3, <br><br>
+
+it’s time to <span style="color:red; font-size: 48pt;">attach data</span> to them.</p>
+
+
+<h3>Binding Data</h3>
+
+<p>
+  <span style="color:red">Data visualization</span> is a process of <span style="color:red">mapping data to visuals.</span> 
+<br><br>
+  <span style="color:red; font-size: 24pt;">Data</span> in, <br><br>
+  <span style="color:red; font-size: 24pt;">visual properties</span> out. 
+</p>
+
+<p>
+  With D3, we bind <span style="color:red">our data input values</span> to <span style="color:red">elements in the DOM</span>.
+</p>
+
+
+<h3>In a Bind</h3>
+
+
+<p>
+We use D3’s <a class="a_link" href="https://github.com/d3/d3-selection/blob/master/README.md#selection_data">data()</a> method to <span style="color:red">bind data to DOM elements</span>. 
+</p>
+
+
+
+<h3>Data</h3>
+
+<p>D3 accept any array of <span style="color:red">numbers</span>, <span style="color:red">strings</span>, or <span style="color:red">objects</span>. 
+</p>
+
+<p>
+Sample dataset:
+</p>
+
+<div>
+  <textarea rows="6" cols="100">
+var dataset = [ 5, 10, 15, 20, 25 ];
+  </textarea>
+</div>
+
+<h3>Loading CSV data</h3>
+
+<p>
+  <span style="color:red">CSV</span> stands for <span style="color:red">comma-separated values</span>. 
+<br><br>
+A CSV datafile:
+</p>
+
+
+
+<div>
+  <textarea rows="8" cols="100">
+Food,Deliciousness
+Apples,9
+Green Beans,5
+Egg Salad Sandwich,4
+Cookies,10
+Liver,0.2
+Burrito,7
+  </textarea>
+</div>
+
+<p>
+The <span style="color:red">first line</span> serves as a header, providing <span style="color:red">names</span> for each of the “columns” of data.
+<br><br>
+If we saved the preceding CSV data into a file called <span style="color:red">food.csv</span>, then we could load the
+file into D3 by using the <span style="color:red">d3.csv()</span> method:</p>
+
+
+
+<div>
+  <textarea rows="6" cols="100">
+d3.csv("food.csv", function(data) {
+  console.log(data);
+});
+  </textarea>
+</div>
+
+<ul>
+csv() takes two arguments: 
+<li>a <span style="color:red">string</span> representing the path of the CSV file to load in,</li>
+
+<li>and an <span style="color:red">anonymous function</span> to be used as a callback function. 
+  <br><br>
+  The callback function is “called” <span style="color:red">only after the CSV file has been loaded into memory.</span> </li>
+</ul>
+
+<p>When called, the anonymous function is handed the <span style="color:red">data</span>.</p>
+
+<div>
+  <img src="./png/5-3.png" width="95%">
+</div>
+
+
+<p>Data is an <span style="color:red">array</span> with <span style="color:red">six elements</span>, each of which is an <span style="color:red">object</span>. </p>
+
+
+<ul>
+D3 has employed the 
+<li><span style="color:red">first row</span> of the CSV for <span style="color:red">property names</span>, and </li>
+<li><span style="color:red">subsequent rows</span> for <span style="color:red">values</span>. </li>
+</ul>
+
+
+<p>Each value from the CSV is stored as a <span style="color:red">string</span>, even the numbers. </p>
+
+
+<!-- ---------------------- -->
+<!-- 
+https://www.w3schools.com/js/js_json_stringify.asp
+-->
+<div>
+  D3: Loading data from a CSV file
+  <div id="demo050301"></div>
+  <hr>
+  <button onclick="myFunction050301()">chapter_05/03_csv_loading_example.html</button>
+  <hr>
+  <textarea rows="6" cols="100">
+
+      d3.csv("food.csv", function(data) {
+        console.log(data);
+        d3.select("#demo4").append("p").text(JSON.stringify(data));
+      });
+  </textarea>
+</div>
+
+<script type="text/javascript">
+  function myFunction050301() {
+      d3.csv("food.csv", function(data) {
+        console.log(data);
+        d3.select("#demo050301").append("p").text(JSON.stringify(data));
+      });
+  }
+</script>
+<!-- ---------------------- -->
+
+
+
+<div>
+<h3>A Handy Listing of CSV Column Names</h3>
+
+<p>D3 stores all the <span style="color:red">column names</span> detected in your CSV here.</p>
+
+<div>
+  <img src="./png/5-3.png" width="95%">
+</div>
+
+<p>
+<span style="color:red">Arrays</span> in JavaScript are just <span style="color:red">objects</span>, and <span style="color:red">columns</span> is just a <span style="color:red">named property</span> added on like any other. 
+</p>
+
+</div>
+
+
+<p>The <span style="color:red">Food column</span> contains strings already, so it needs no conversion. <br><br>
+
+But <span style="color:red">Deliciousness</span> contains integers and floats.  <br><br>
+
+Next, I define a new function,
+rowConverter, and tell it how to handle each column.</p>
+
+
+
+<h3></h3>
+
+<div>
+  <textarea rows="12" cols="100">
+var rowConverter = function(d) {
+  return {
+    Food: d.Food, //No conversion
+    Deliciousness: parseFloat(d.Deliciousness)
+  };
+}
+
+d3.csv("food.csv", rowConverter, function(data) {
+  console.log(data);
+});
+  </textarea>
+</div>
+
+<ul>
+  
+  Note that <span style="color:red">rowConverter</span> has been included as a new parameter passed into <span style="color:red">d3.csv()</span>. <br><br>
+
+So now d3.csv() will 
+<li>load the file in, </li>
+<li>run each row through the row conversion function, and </li>
+<li>finally store it all in data. </li> 
+<br><br>
+
+In the console,
+you’ll see <span style="color:red">Deliciousness: 9</span> instead of <span style="color:red">Deliciousness: "9"</span>.
+</ul>
+
+
+
+
+<!-- ---------------------- -->
+<!-- 
+https://www.w3schools.com/js/js_json_stringify.asp
+https://stackoverflow.com/questions/31829826/print-javascript-array-in-html/31829886
+-->
+<div>
+  D3: Loading data from a CSV file
+  <div id="demo050302"></div>
+  <hr>
+  <button onclick="myFunction050302()">chapter_05/03_csv_loading_example.html</button>
+  <hr>
+  <textarea rows="16" cols="100">
+
+      d3.csv("food.csv", function(data) {
+        console.log(data);
+        var parsed = "";
+        for (i = 0; i < data.length; i++) {
+            var myobj = data[i];
+            for (var property in myobj) {
+                parsed += property + ": " + myobj[property] + ", ";
+            }
+            parsed += '<br>';
+        }
+        d3.select("#demo050302").append("p").html(parsed);
+      });
+  </textarea>
+</div>
+
+<script type="text/javascript">
+  function myFunction050302() {
+      d3.csv("food.csv", function(data) {
+        console.log(data);
+        var parsed = "";
+        for (i = 0; i < data.length; i++) {
+            var myobj = data[i];
+            for (var property in myobj) {
+                parsed += property + ": " + myobj[property] + ", ";
+                //alert(property);
+                //alert(myobj[property]);
+            }
+            parsed += '<br>';
+        }
+        d3.select("#demo050302").append("p").html(parsed);
+      });
+  }
+</script>
+<!-- ---------------------- -->
+
+
+
+<div>
+  <h3>Handling Data-Loading Errors</h3>
+
+  <p>
+Note that <span style="color:red">d3.csv()</span> is an <span style="color:red">asynchronous method</span>,<br>
+這意味著即使 JavaScript 正在等待文件完成下載到瀏覽器中，其餘程式碼也會被執行。
+</p>
+
+  <p>
+Make sure to reference your data only from <span style="color:red">within the callback function</span>.
+  </p>
+
+  <p>
+Declare a <span style="color:red">global variable</span> first, then call <span style="color:red">d3.csv()</span> to load the data.<br><br>
+
+
+By declaring a global variable and storing your data inside that global variable, <br>
+you can ensure that the data is available later to any subsequent functions, even outside of <span style="color:red">d3.csv()</span>. <br><br>
+  </p>
+
+  <div>
+    <textarea rows="16" cols="100">
+var dataset; //Declare global variable, initially empty (undefined)
+
+d3.csv("food.csv", function(data) {
+  dataset = data; //Once loaded, copy to dataset.
+  generateVis(); //Then call other functions that
+  hideLoadingMsg(); //depend on data being present.
+});
+
+var useTheDataLater = function() {
+  //Assuming useTheDataLater() is called sometime after
+  //d3.csv() has successfully loaded in the data,
+  //then the global dataset would be accessible here.
+};
+    </textarea>
+  </div>
+
+  <p>
+To further confuse matters, the <span style="color:red">callback function is executed</span> whether or not the datafile
+was loaded successfully.
+  </p>
+
+  <p>
+Fortunately, you can include an <span style="color:red">optional error parameter</span> in the callback function
+definition.  <br><br>
+Note that error must be the first parameter, and data the second:
+  </p>
+
+  <div>
+    <textarea rows="16" cols="100">
+var dataset;
+
+d3.csv("food.csv", function(error, data) {
+  if (error) { //If error is not null, something went wrong.
+    console.log(error); //Log the error.
+  } else { //If no error, the file loaded correctly. Yay!
+    console.log(data); //Log the data.
+
+    //Include other code to execute after successful file load here
+    dataset = data;
+    generateVis();
+    hideLoadingMsg();
+  }
+});
+    </textarea>
+  </div>
+</div>
+
+
+<p>Verifying your data is a great use of the <span style="color:red">csv()</span> callback function, <br><br>
+
+
+  but typically this is where you’d call other functions that <span style="color:red">construct the visualization</span>.</p>
+
+<div>
+  <textarea rows="16" cols="100">
+var dataset; //Declare global var
+
+d3.csv("food.csv", function(data) {
+
+  //Hand CSV data off to global var, so it's accessible later.
+  dataset = data;
+
+  //Call some other functions that generate your visualization, e.g.:
+  generateVisualization();
+  makeAwesomeCharts();
+  makeEvenAwesomerCharts();
+  thankAwardsCommittee();
+});
+  </textarea>
+</div>
+
+
+
+<h3>Loading JSON data</h3>
+
+<p>All you need to know is
+that the <span style="color:red">d3.json()</span> method works the same way as <span style="color:red">csv().</span> <br><br>
+Load your <span style="color:red">JSON data</span> in this way:</p>
+
+<div>
+  <textarea rows="6" cols="100">
+d3.json("waterfallVelocities.json", function(json) {
+  console.log(json); //Log output to console
+});
+  </textarea>
+</div>
+
+
+
+
+<div>
+  <div>
+  <img src="../chapter00/jpg/m.jpg" width="64">
+  </div>
+
+<h3>Mr. Data Converter</h3>
+
+
+<p><a class="a_link" href="https://shancarter.github.io/mr-data-converter/">Mr. Data Converter</a> <br> 
+  Mr. Data Converter takes your Excel, CSV, or tab-separated data and converts it to JSON.</p>
+</div>
+
+
+
+
+<h3>Please Make Your Selection</h3>
+
+<p>Simple array:</p>
+
+<div>
+  <textarea rows="3" cols="100">
+var dataset = [ 5, 10, 15, 20, 25 ];
+  </textarea>
+</div>
+
+<p>Say that we want to make a <span style="color:red">new paragraph</span> for each value in the dataset. 
+</p>
+
+<div>
+  <textarea rows="3" cols="100">
+d3.select("body").selectAll("p")
+  </textarea>
+</div>
+
+<p>the paragraphs we want to select <span style="color:red">don’t exist yet</span>. <br><br>
+
+
+And this gets at one of the <span style="color:red">most common points of confusion</span> with D3: <br><br>
+how can we
+<span style="color:red">select elements that don’t yet exist?</span> 
+</p>
+
+<p>The answer lies with <span style="color:red">enter()</span>. </p>
+
+
+
+<div>
+  <textarea rows="8" cols="100">
+d3.select("body").selectAll("p")
+.data(dataset)
+.enter()
+.append("p")
+.text("New paragraph!");
+  </textarea>
+</div>
+
+<p>View the example code <span style="color:red">04_creating_paragraphs.html</span> and you should see five new
+paragraphs, each with the same content.</p>
+
+
+<!-- ---------------------- -->
+<div>
+  D3: Creating paragraphs dynamically from data
+  <div id="demo0504"></div>
+  <hr>
+  <button onclick="myFunction0504()">chapter_05/04_creating_paragraphs.html</button>
+  <hr>
+  <textarea rows="10" cols="100">
+
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0504").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text("New paragraph!");
+  </textarea>
+</div>
+
+<script type="text/javascript">
+  function myFunction0504() {
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0504").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text("New paragraph!");
+  }
+</script>
+<!-- ---------------------- -->
+
+
+
+
+<div>
+  這是發生的事情:<br><br>
+
+<table>
+  <tr>
+    <td width="196">d3.select("body")</td>
+    <td><span style="color:red">Finds the body in the DOM</span> <br><br>and hands off (傳遞) a reference to the next step in the chain.</td>
+  </tr>
+  <tr>
+    <td width="196">.selectAll("p")</td>
+    <td><span style="color:red">Selects all paragraphs in the DOM</span>. <br><br>
+      Because none exist yet, this returns an <span style="color:red">empty selection</span>. <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td width="196">.data(dataset)</td>
+    <td>.data(dataset)
+<span style="color:red">Counts and parses our data values</span>. <br><br>
+<hr>
+There are five values in our array called dataset, <br><br>
+so everything past this point <span style="color:red">is executed five times</span>, once for each value.<br><br> </td>
+  </tr>
+  <tr>
+    <td width="196">.enter()</td>
+    <td><span style="color:red">To create new, data-bound elements, you must use enter()</span>. <br><br>
+      This method looks at the current DOM selection, <br>
+      and then at the data being handed to it.  <br> <br>
+      
+      <span style="color:red">If there are more data values than corresponding DOM elements, <br>
+        then enter() creates a new placeholder element on which you can work your magic.</span> <br><br>
+        It then hands off a <span style="color:red">reference</span> to this new placeholder to the next step in the chain.  <br> <br></td>
+  </tr>
+  <tr>
+    <td width="196">.append("p")</td>
+    <td>
+<span style="color:red">Takes the empty placeholder selection created by enter() and appends a p element
+into the DOM</span>. <br><br>
+Then it hands off a reference to the element it just
+created to the next step in the chain. <br> <br> </td>
+  </tr>
+  <tr>
+    <td width="196">.text("New paragraph!")</td>
+    <td>Takes the reference to the newly created p and <span style="color:red">inserts a text value</span>. <br> <br> </td>
+  </tr>
+</table>
+</div>
+
+
+
+
+
+<h3>Bound and Determined</h3>
+
+<div>
+  <img src="https://www.svgrepo.com/show/286815/question.svg" width="128">
+</div>
+
+<p>Our data has been <span style="color:red">read</span>, <span style="color:red">parsed</span>, and <span style="color:red">bound</span> to <span style="color:red">new p elements</span> that we created in the DOM. </span>
+</p>
+
+
+
+
+<div>
+  <img src="https://www.svgrepo.com/show/286680/gallery.svg" width="128">
+</div>
+
+<p>
+  Switch to the <span style="color:red">JavaScript console</span>, type in the following code, and click Enter. </p>
+
+<div>
+  <textarea rows="3" cols="100">
+d3.selectAll("p")
+  </textarea>
+</div>
+
+
+<p>
+  Interesting: the selection is actually <span style="color:red">an object</span> containing both a <span style="color:red">_groups</span> array and a <span style="color:red">_parents</span> array. <br><br> Click the <span style="color:red">gray disclosure triangle</span> to expand the object.
+<br><br>
+Then let’s expand <span style="color:red">_groups</span> to see its contents.
+<br><br>
+Note that <span style="color:red">_groups</span> contains only one item, a <span style="color:red">NodeList array</span>, itself containing five more items. 
+
+<br><br>Let’s expand that. You’ll notice the five <span style="color:red">p</span>s, numbered 0 through 4. 
+  <br><br>
+  Click the disclosure triangle next to the first one (number zero).
+</p>
+
+<div>
+  <img src="./png/5-8.png" width="99%">
+</div>
+
+
+
+
+
+
+<div>
+<img src="https://www.svgrepo.com/show/286689/arrow.svg" width="128">
+</div>
+
+
+<p>
+Our first data value, the number 5, is showing up under the first paragraph’s <span style="color:red">__data__</span> attribute. 
+
+<br><br>
+Expand the other paragraph elements, and you’ll see they also contain
+<span style="color:red">__data__</span> values: <span style="color:red">10</span>, <span style="color:red">15</span>, <span style="color:red">20</span>, and <span style="color:red">25</span>, just as we specified.
+</p>
+
+
+<div>
+<img src="https://www.svgrepo.com/show/276812/ram-memory-ram.svg" width="128">
+</div>
+
+
+
+<p>You see, when D3 binds data to an element, <span style="color:red">that data doesn’t exist in the DOM</span>, but <span style="color:red">it does exist in memory</span> as a <span style="color:red">__data__</span> attribute of that element. 
+</p>
+
+
+<div>
+<img src="https://www.svgrepo.com/show/40686/video-game-console-with-gamepad.svg" width="128">
+</div>
+
+
+<h3>Using Your Data</h3>
+
+<ul>
+  We can see that the <span style="color:red">data</span> 
+<li>has been loaded into the page and </li>
+<li>is bound to our newly created elements in the DOM, </li>
+but can we use it? Here’s our code so far:
+</ul>
+
+<div>
+  <textarea rows="12" cols="100">
+var dataset = [ 5, 10, 15, 20, 25 ];
+
+
+d3.select("body").selectAll("p")
+  .data(dataset)
+  .enter()
+  .append("p")
+  .text("New paragraph!");
+  </textarea>
+</div>
+
+<p>Let’s change the last line to:</p>
+
+<div>
+  <textarea rows="3" cols="100">
+.text(function(d) { return d; });
+  </textarea>
+</div>
+
+<p>Now test out that new code in <span style="color:red">05_creating_paragraphs_text.html</span>. </p>
+
+<div>
+<img src="./png/5-14.png">
+</div>
+
+
+<!-- ---------------------- -->
+<div>
+  D3: Setting the content of paragraphs from data
+  <div id="demo0505"></div>
+  <hr>
+  <button onclick="myFunction0505()">chapter_05/05_creating_paragraphs_text.html</button>
+  <hr>
+  <textarea rows="10" cols="100">
+
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0505").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) { return d; });
+  </textarea>
+</div>
+
+<script type="text/javascript">
+  function myFunction0505() {
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0505").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) { return d; });
+  }
+</script>
+<!-- ---------------------- -->
+
+<p>
+We used our data to populate the contents of <span style="color:red">each paragraph</span>, all thanks to the
+magic of the <span style="color:red">data()</span> method. <br><br>
+
+
+When you chain methods together, anytime after you
+call <span style="color:red">data()</span>, you can create an anonymous function that accepts d as input. <br><br>
+
+The magical <span style="color:red">data()</span> method ensures that <span style="color:red">d</span> is set to the <span style="color:red">corresponding value</span> in your original dataset, given the current element at hand.
+</p>
+
+
+
+<h3>High-Functioning</h3>
+
+<p>The basic structure of a <span style="color:red">function definition</span> is:</p>
+
+<div>
+  <textarea rows="6" cols="100">
+function(input_value) {
+  //Calculate something here
+  return output_value;
+}
+  </textarea>
+</div>
+
+
+<p>The function we used earlier:</p>
+
+<div>
+  <textarea rows="4" cols="100">
+function(d) {
+  return d;
+}
+  </textarea>
+</div>
+
+<p>This is called an <span style="color:red">anonymous function</span>, because it doesn’t have a name. 
+
+<br><br>
+  Contrast that
+with a function that’s stored in a variable, which is a named function:</p>
+
+<div>
+  <textarea rows="4" cols="100">
+var doSomething = function() {
+  //Code to do something here
+};
+  </textarea>
+</div>
+
+
+<p>This particular anonymous function is wrapped within D3’s <span style="color:red">text()</span> function. <br><br>
+
+  So our anonymous function is executed first. Then its result is handed off to <span style="color:red">text()</span>.<br><br>
+
+   Then <span style="color:red">text()</span> finally works its magic (by inserting its input argument as text within the selected DOM element):</p>
+
+<div>
+  <textarea rows="4" cols="100">
+.text(function(d) {
+  return d;
+});
+  </textarea>
+</div>
+
+<p> Maybe you’d like to add some extra text, as in:</p>
+
+
+<div>
+  <textarea rows="4" cols="100">
+.text(function(d) {
+  return "I can count up to " + d;
+});
+  </textarea>
+</div>
+
+<p>which produces the result shown in Figure 5-15, as seen in example file <span style="color:red">06_creating_
+paragraphs_counting.html</span>.</p>
+
+<div>
+<img src="./jpg/5-15.jpg">
+</div>
+
+
+
+
+
+<!-- ---------------------- -->
+<div>
+  D3: Inserting additional text into paragraphs
+  <div id="demo0506"></div>
+  <hr>
+  <button onclick="myFunction0506()">chapter_05/06_creating_paragraphs_counting.html</button>
+  <hr>
+  <textarea rows="12" cols="100">
+    
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0506").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) {
+          return "I can count up to " + d;
+        });
+  </textarea>
+</div>
+
+<script type="text/javascript">
+  function myFunction0506() {
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0506").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) {
+          return "I can count up to " + d;
+        });
+  }
+</script>
+<!-- ---------------------- -->
+
+<h3>Data Wants to Be Held</h3>
+
+<p>You might be wondering why you have to write out <span style="color:red">function(d) { … }</span> instead of
+just <span style="color:red">d</span> on its own. 
+
+<br><br>
+For example, this won’t work:</p>
+<div>
+  <textarea rows="3" cols="100">
+.text("I can count up to " + d);
+  </textarea>
+</div>
+
+
+<p>In this context, without being wrapped <span style="color:red">d</span> in an anonymous function, <span style="color:red">d</span> is undefined.</p>
+
+<p>Here is <span style="color:red">d</span> being held gently and appropriately by a function:</p>
+
+<div>
+  <textarea rows="6" cols="100">
+.text(function(d) { // <-- Note tender embrace at left
+  return "I can count up to " + d;
+});
+  </textarea>
+</div>
+
+<p>The reason for this syntax is that <span style="color:red">.text()</span>, <span style="color:red">attr()</span>, and many other D3 methods can take a function as an argument. <br><br>
+
+
+  For example, <span style="color:red">text()</span> can take either simply a <span style="color:red">static string of text</span> as an argument:</p>
+
+<div>
+  <textarea rows="3" cols="100">
+.text("someString")
+  </textarea>
+</div>
+
+
+<p>or the <span style="color:red">result of a function</span>:</p>
+<div>
+  <textarea rows="3" cols="100">
+.text(someFunction()) // Presumably, someFunction() would return a string
+  </textarea>
+</div>
+
+<p>or an <span style="color:red">anonymous function</span> itself can be the argument, such as when you write:</p>
+
+<div>
+  <textarea rows="4" cols="100">
+.text(function(d) {
+  return d;
+})
+  </textarea>
+</div>
+
+<p>Here, you are defining an <span style="color:red">anonymous function</span>. <br><br> If D3 sees a function there, it will call that function, while <span style="color:red">handing off the current datum</span> d as the function’s argument. <br><br>
+
+All D3 is looking for is any <span style="color:red">argument name</span> into which it can pass
+the current datum. </p>
+
+<div>
+  <img src="https://www.svgrepo.com/show/245769/questions-help.svg" width="128">
+</div>
+
+
+<div>
+  <img src="https://www.svgrepo.com/show/271835/cry-emoji.svg" width="128">
+  <img src="https://www.svgrepo.com/show/271789/cry-emoji.svg" width="128">
+  <img src="https://www.svgrepo.com/show/271788/cry-emoji.svg" width="128">
+  <img src="https://www.svgrepo.com/show/271888/cry.svg" width="128">
+  <img src="https://www.svgrepo.com/show/271823/cry.svg" width="128">
+  <img src="https://www.svgrepo.com/show/271889/cry.svg" width="128">
+</div>
+
+
+<h3>Beyond Text</h3>
+
+<p> <span style="color:red">attr()</span> and <span style="color:red">style()</span>, which allow us to set HTML attributes and CSS properties on selections, respectively.
+</p>
+
+<div>
+  <textarea rows="3" cols="100">
+.style("color", "red");
+  </textarea>
+</div>
+
+<p>produces the result shown in Figure 5-16, as seen in <span style="color:red">07_creating_paragraphs_
+with_style.html</span>.</p>
+
+<div>
+<img src="./jpg/5-16.jpg">
+</div>
+
+
+
+
+<!-- ---------------------- -->
+<div>
+  D3: Setting the style of paragraph
+  <div id="demo0507"></div>
+  <hr>
+  <button onclick="myFunction0507()">chapter_05/07_creating_paragraphs_with_style.html</button>
+  <hr>
+  <textarea rows="12" cols="100">
+    
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0507").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) {
+          return "I can count up to " + d;
+        })
+        .style("color", "red");
+  </textarea>
+</div>
+
+<script type="text/javascript">
+  function myFunction0507() {
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0507").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) {
+          return "I can count up to " + d;
+        })
+        .style("color", "red");
+  }
+</script>
+<!-- ---------------------- -->
+
+
+<p>But we could use a custom function to make the text
+red only if the current datum exceeds a certain threshold. So we revise that last line to
+use a function instead of a string:</p>
+
+
+
+
+<div>
+  <textarea rows="8" cols="100">
+.style("color", function(d) {
+  if (d > 15) { //Threshold of 15
+    return "red";
+  } else {
+    return "black";
+  }
+});
+  </textarea>
+</div>
+
+<p>See the resulting change, displayed in Figure 5-17, in <span style="color:red">08_creating_paragraphs_
+with_style_functions.html</span>.</p>
+
+<div>
+<img src="./jpg/5-17.jpg">
+</div>
+
+
+<p>
+Okay, we’ve got data loaded in, and dynamically created <span style="color:red">DOM elements bound to
+that data</span>. <br><br>I’d say we’re ready to start drawing with data!</p>
+
+<div>
+  <img src="https://www.svgrepo.com/show/228679/game-console-game-controller.svg" width="128">
+</div>
+
+<!-- ---------------------- -->
+<div>
+  D3: Setting paragraphs' style conditionally, based on data
+  <div id="demo0508"></div>
+  <hr>
+  <button onclick="myFunction0508()">chapter_05/08_creating_paragraphs_with_style_functions.html</button>
+  <hr>
+  <textarea rows="18" cols="100">
+
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0508").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) {
+          return "I can count up to " + d;
+        })
+        .style("color", function(d) {
+          if (d > 15) { //Threshold of 15
+            return "red";
+          } else {
+            return "black";
+          }
+        });
+  </textarea>
+</div>
+
+<script type="text/javascript">
+  function myFunction0508() {
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      
+      d3.select("#demo0508").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) {
+          return "I can count up to " + d;
+        })
+        .style("color", function(d) {
+          if (d > 15) { //Threshold of 15
+            return "red";
+          } else {
+            return "black";
+          }
+        });
+  }
+</script>
+<!-- ---------------------- -->
+
+
+
+<!-- ---------------------- -->
+<!-- ---------------------- -->
+
+<!--
+<iframe frameBorder="0" width="787" height="600" src="https://purecss3.net/index/Gununu_Index_CSS3.html" style="transform: scale(0.5);" scrolling="no"></iframe>
+-->
+
+<div onmouseover="playAudio()" onmouseout="pauseAudio()">
+  <iframe frameBorder="0" width="600" height="300" src="../chapter00/kimetsu.html" style=" transform: scale(2);" scrolling="no"></iframe>
+</div>
+
+<!-- 
+https://www.w3schools.com/jsref/met_audio_play.asp
+https://www.w3schools.com/jsref/event_onmouseover.asp
+https://stackoverflow.com/questions/11004437/why-isnt-my-audio-rewinding
+-->
+
+<audio id="myAudio">
+  <source src="../chapter00/kimetsu.mp3" type="audio/mp3">
+</audio>
+
+<script type="text/javascript">
+
+  function playAudio() { 
+    document.getElementById("myAudio").play(); 
+  } 
+
+  function pauseAudio() { 
+    //document.getElementById("myAudio").pause(); 
+  }
+
+</script>
+
+<div class="GFG">
+終了。 しゅう りょう。 Let's call it a day.
+<hr> 
+終わりましょう。 Let's get done with this. 
+<hr>
+終わりにしましょう。 Let's finish this.
+</div>
+
+</body>
+</html>
