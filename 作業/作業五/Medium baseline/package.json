@@ -1,0 +1,14 @@
+{
+  "name": "87bffca52c854ff5",
+  "main": "87bffca52c854ff5@55.js",
+  "version": "55.0.0",
+  "homepage": "https://observablehq.com/d/87bffca52c854ff5",
+  "author": {
+    "name": "北科大-何哲平's Workspace",
+    "url": "https://observablehq.com/@bei-ke-da-he-zhe-ping-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
