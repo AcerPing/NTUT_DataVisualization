@@ -1,1 +1,19 @@
+★老師的GitHub網站：
 https://github.com/tjhsieh/vis2023f/
+
+★資料可視化課程教材網站：
+1.) https://tjhsieh.github.io/c/vis/vis2023f/
+2.) https://tjhsieh.github.io/c/vis/vis2023f/syllabus/index.html
+3.) https://tjhsieh.github.io/vis2023f/hw00/index.html
+4.) https://tjhsieh.github.io/c/vis/vis2023f/hw/index.html
+
+
+★作業成績表：
+https://yungpei.github.io/vis2023f_grade/
+
+★出席成績表：
+https://yungpei.github.io/vis2023f_grade/index_attend.html
+
+★我的作品集：
+1.) https://acerping.github.io/vis2023f/hw00/index.html
+2.) https://github.com/AcerPing/vis2023f/tree/master
